@@ -19,9 +19,15 @@ canvas {
     font-family: 'Rubik', sans-serif;
 }
 
+.card {
+    background-color: rgba(0,0,0,0) !important;
+    border: none !important;
+}
+
+
 .d {
     position: relative;
-    padding: 5em;
+    padding-top: 50px !important;
     background-color: rgba(0,0,0,0);
     color: white;
     font-family: 'Rubik', sans-serif;
