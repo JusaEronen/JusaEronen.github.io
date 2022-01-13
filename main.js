@@ -50,7 +50,7 @@ moon.position.set(35, 0, 0);
 //Values for moon orbit
 var r = 35;
 var theta = 0;
-var dTheta = 2 * Math.PI / 1500;
+var dTheta = 2 * Math.PI / 3000;
 scene.add(moon)
 
 
@@ -77,13 +77,16 @@ function animate() {
     canvasResizeToDisplay();
 
     //Earth rotation
-    earth.rotateY(0.0005);
-    clouds.rotateY(0.00025);
+    earth.rotateX(0.00010);
+    earth.rotateY(0.00010);
+    clouds.rotateY(0.00005);
 
     //Moon orbit
     theta += dTheta;
     moon.position.x = r * Math.cos(theta);
     moon.position.z = r * Math.sin(theta);
+    //Moon rotation
+    moon.rotateY(0.00020);
 
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
