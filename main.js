@@ -8,9 +8,16 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHei
 const renderer = new THREE.WebGLRenderer({canvas: document.querySelector("#bg"), antialias: true});
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.set(30, 0, 0);
-camera.up = new THREE.Vector3(0, 3, 1);
-camera.lookAt(new THREE.Vector3(0, 0, 0));
+
+
+if (window.innerWidth < 1100) {
+    camera.position.set(10, 0, 0);
+
+} else {
+    camera.position.set(30, 0, 0);
+    camera.up = new THREE.Vector3(0, 3, 1);
+    camera.lookAt(new THREE.Vector3(0, 0, 0));
+}
 
 //Lights
 const ambientLight = new THREE.AmbientLight(0x888888);
@@ -55,9 +62,17 @@ scene.add(earth, clouds, moon);
 
 //Controls
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.target.set(9, 5, -20);
-controls.update();
-controls.enabled = false;
+
+if (window.innerWidth < 1100) {
+    controls .target.set(0,5,0);
+    controls.update();
+    controls.enabled = false;
+} else {
+    controls.target.set(9, 5, -20);
+    controls.update();
+    controls.enabled = false;
+}
+
 
 //2D Grid
 //const gridHelper = new THREE.GridHelper(200, 50);

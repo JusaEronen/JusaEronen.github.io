@@ -1,3 +1,7 @@
+body {
+    background-color: black;
+}
+
 canvas {
     position: fixed;
     top: 0;
@@ -12,17 +16,19 @@ canvas {
     font-family: 'Rubik', sans-serif;
 }
 
+
+
 .b {
-    color: white;
+    color: white !important;
 }
 .b:hover {
-    color: #FA4500 !important;
+    color: #264fc0 !important;
 }
 
 .b:focus{
     box-shadow: none !important;
     text-decoration: underline !important;
-    text-decoration-color: #FA4500 !important;
+    text-decoration-color: #264fc0 !important;
 }
 
 ul.list-unstyled a {
@@ -32,7 +38,8 @@ ul.list-unstyled a {
 }
 
 .contacts {
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0,0,0,0) !important;
+    border: none !important;
 }
 
 .contacts-al {
@@ -54,5 +61,5 @@ ul.list-unstyled a {
   .fa-envelope-square,
   .fa-phone-square-alt {
       font-size: 2em;
-      color: #FA4500;
+      color: #264fc0;
   }
