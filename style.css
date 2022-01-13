@@ -1,4 +1,58 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
 }
+
+.d {
+    position: relative;
+    padding-top: 5vh;
+    background-color: rgba(0,0,0,0);
+    color:white;
+    font-family: 'Rubik', sans-serif;
+}
+
+.b {
+    color: white;
+}
+.b:hover {
+    color: #FA4500 !important;
+}
+
+.b:focus{
+    box-shadow: none !important;
+    text-decoration: underline !important;
+    text-decoration-color: #FA4500 !important;
+}
+
+ul.list-unstyled a {
+    font-size: 1.4em;
+    color:white;
+    text-decoration: none;
+}
+
+.contacts {
+    background-color: rgba(0,0,0,0);
+}
+
+.contacts-al {
+    text-align: left !important;
+    line-height: 1.7em;
+}
+
+.fa-instagram {
+    font-size: 0.4em;
+    color: transparent;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+
+  .fa-linkedin,
+  .fa-github-square,
+  .fa-envelope-square,
+  .fa-phone-square-alt {
+      font-size: 2em;
+      color: #FA4500;
+  }
