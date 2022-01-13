@@ -45,20 +45,24 @@ const cloudMaterial = new THREE.MeshPhongMaterial({
 })
 const clouds = new THREE.Mesh(cloudGeometry, cloudMaterial);
 
-//Moon
-const moonGeometry = new THREE.SphereGeometry(1.5, 50, 50);
-const moonMaterial = new THREE.MeshPhongMaterial({
-    map: new THREE.TextureLoader().load("./images/moon.jpg")
-});
-const moon = new THREE.Mesh(moonGeometry, moonMaterial);
-moon.position.set(35, 0, 0);
+scene.add(earth, clouds);
 
-//Values for moon orbit
-var r = 35;
-var theta = 0;
-var dTheta = 2 * Math.PI / 1500;
+//No moon for mobile devices
+if (window.innerWidth > 1100) {
+    //Moon
+    const moonGeometry = new THREE.SphereGeometry(1.5, 50, 50);
+    const moonMaterial = new THREE.MeshPhongMaterial({
+        map: new THREE.TextureLoader().load("./images/moon.jpg")
+    });
+    const moon = new THREE.Mesh(moonGeometry, moonMaterial);
+    moon.position.set(35, 0, 0);
 
-scene.add(earth, clouds, moon);
+    //Values for moon orbit
+    var r = 35;
+    var theta = 0;
+    var dTheta = 2 * Math.PI / 1500;
+    scene.add(moon);
+}
 
 //Controls
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -85,13 +89,13 @@ function animate() {
     earth.rotateY(0.0005);
     clouds.rotateY(0.00025);
 
-    //Moon rotation
-    moon.rotateY(0.00025);
-
     //Moon orbit
-    theta += dTheta;
-    moon.position.x = r * Math.cos(theta);
-    moon.position.z = r * Math.sin(theta);
+    if (window.innerWidth > 1100 ) {
+        theta += dTheta;
+        moon.position.x = r * Math.cos(theta);
+        moon.position.z = r * Math.sin(theta);
+    }
+
 
     renderer.render(scene, camera);
 }
