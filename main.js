@@ -57,9 +57,7 @@ scene.add(moon)
 //Controls
 //const controls = new OrbitControls(camera, renderer.domElement);
 
-//2D Grid
-//const gridHelper = new THREE.GridHelper(200, 50);
-//scene.add(gridHelper);
+
 
 //Resize canvas on display resize
 function canvasResizeToDisplay(force) {
