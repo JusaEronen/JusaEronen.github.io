@@ -1,31 +1,41 @@
 body {
     background-color: black;
+    margin: 0;
 }
 
 canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: absolute;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    
 }
 
-.d {
+.divHeader {
     position: relative;
-    padding-top: 5vh;
+    padding-top: 10em;
     background-color: rgba(0,0,0,0);
     color:white;
     font-family: 'Rubik', sans-serif;
 }
 
-
+.d {
+    position: relative;
+    padding: 5em;
+    background-color: rgba(0,0,0,0);
+    color: white;
+    font-family: 'Rubik', sans-serif;
+}
 
 .b {
     color: white !important;
 }
+
 .b:hover {
     color: #264fc0 !important;
 }
 
-.b:focus{
+.b:focus {
     box-shadow: none !important;
     text-decoration: underline !important;
     text-decoration-color: #264fc0 !important;
