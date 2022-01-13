@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: black !important;
     margin: 0;
 }
 
@@ -13,7 +13,7 @@ canvas {
 
 .divHeader {
     position: relative;
-    padding-top: 10em;
+    padding-top: 2em;
     background-color: rgba(0,0,0,0);
     color:white;
     font-family: 'Rubik', sans-serif;
@@ -27,7 +27,7 @@ canvas {
 
 .d {
     position: relative;
-    padding-top: 50px !important;
+    padding-top: 35px !important;
     background-color: rgba(0,0,0,0);
     color: white;
     font-family: 'Rubik', sans-serif;
@@ -35,17 +35,15 @@ canvas {
 
 .b {
     color: white !important;
+    box-shadow: none !important;
+    padding: 0.5rem 0.5rem !important;
 }
 
 .b:hover {
     color: #264fc0 !important;
 }
 
-.b:focus {
-    box-shadow: none !important;
-    text-decoration: underline !important;
-    text-decoration-color: #264fc0 !important;
-}
+
 
 ul.list-unstyled a {
     font-size: 1.4em;
@@ -58,20 +56,15 @@ ul.list-unstyled a {
     border: none !important;
 }
 
-.contacts-al {
+.contacts-text-align{
     text-align: left !important;
-    line-height: 1.7em;
 }
 
-.fa-instagram {
-    font-size: 0.4em;
-    color: transparent;
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    background-clip: text;
-    -webkit-background-clip: text;
-  }
+.contacts-mw {
+    min-width: 360px !important;
+}
 
+  .fa-instagram-square,
   .fa-linkedin,
   .fa-github-square,
   .fa-envelope-square,
@@ -79,3 +72,4 @@ ul.list-unstyled a {
       font-size: 2em;
       color: #264fc0;
   }
+
