@@ -1,6 +1,9 @@
 import * as THREE from 'https://cdn.skypack.dev/three@0.128.0/build/three.module.js'
 import { OrbitControls } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/controls/OrbitControls.js'
 
+//Controls
+//const controls = new OrbitControls(camera, renderer.domElement);
+
 //Scene, camera & renderer
 const scene = new THREE.Scene();
 scene.background = new THREE.TextureLoader().load("./images/space.jpg");
@@ -11,20 +14,20 @@ const renderer = new THREE.WebGLRenderer({canvas: document.querySelector("#bg"),
 renderer.setPixelRatio(window.devicePixelRatio);
 
 
-//Lights
-const ambientLight = new THREE.AmbientLight(0x888888);
-const directionalLight = new THREE.DirectionalLight(0xfdfcf0, 1);
-directionalLight.position.set(30, -20, -45);
-scene.add(ambientLight, directionalLight);
+//Light
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+directionalLight.position.set(50, 50, -80);
+scene.add(directionalLight);
 
 //Earth
 const earthGeometry = new THREE.SphereGeometry(10, 50, 50);
 const earthMaterial = new THREE.MeshPhongMaterial({
     map: new THREE.TextureLoader().load("./images/earth.jpg"),
-    normalMap: new THREE.TextureLoader().load("./images/earthNormalMap.tif"),
+    normalMap: new THREE.TextureLoader().load("./images/normalMap.png"),
+    specularMap: new THREE.TextureLoader().load("./images/specularMap.png"),
     color: 0xaaaaaa,
     specular: 0x333333,
-    shininess: 15
+    shininess: 5
 });
 const earth = new THREE.Mesh(earthGeometry, earthMaterial);
 earth.position.set(0,0,0);
@@ -34,16 +37,14 @@ earth.rotateZ(-0.35)
 const cloudGeometry = new THREE.SphereGeometry(10.1, 50, 50);
 const cloudMaterial = new THREE.MeshPhongMaterial({
     map: new THREE.TextureLoader().load("./images/clouds.jpg"),
+    depthWrite: false,
     transparent: true,
-    opacity: 0.05
+    opacity: 0.5
 });
 const clouds = new THREE.Mesh(cloudGeometry, cloudMaterial);
 clouds.position.set(0,0,0);
 
 scene.add(earth, clouds);
-
-//Controls
-//const controls = new OrbitControls(camera, renderer.domElement);
 
 //Resize canvas on display resize
 function canvasResizeToDisplay(force) {
