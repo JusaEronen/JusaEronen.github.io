@@ -5,7 +5,7 @@ import { OrbitControls } from 'https://cdn.skypack.dev/three@0.128.0/examples/js
 const scene = new THREE.Scene();
 scene.background = new THREE.TextureLoader().load("./images/space.jpg");
 const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-camera.position.set(15, 5, 0);
+camera.position.set(20, 5, 0);
 camera.lookAt(0, 0, 0);
 const renderer = new THREE.WebGLRenderer({canvas: document.querySelector("#bg"), antialias: true});
 renderer.setPixelRatio(window.devicePixelRatio);
@@ -21,43 +21,29 @@ scene.add(ambientLight, directionalLight);
 const earthGeometry = new THREE.SphereGeometry(10, 50, 50);
 const earthMaterial = new THREE.MeshPhongMaterial({
     map: new THREE.TextureLoader().load("./images/earth.jpg"),
-    normalMap: new THREE.TextureLoader().load("./images/earthNormalMap.jpg"),
+    normalMap: new THREE.TextureLoader().load("./images/earthNormalMap.tif"),
     color: 0xaaaaaa,
     specular: 0x333333,
     shininess: 15
 });
 const earth = new THREE.Mesh(earthGeometry, earthMaterial);
 earth.position.set(0,0,0);
+earth.rotateZ(-0.35)
 
 //Clouds
 const cloudGeometry = new THREE.SphereGeometry(10.1, 50, 50);
 const cloudMaterial = new THREE.MeshPhongMaterial({
     map: new THREE.TextureLoader().load("./images/clouds.jpg"),
     transparent: true,
-    opacity: 0.15
-})
+    opacity: 0.05
+});
 const clouds = new THREE.Mesh(cloudGeometry, cloudMaterial);
+clouds.position.set(0,0,0);
 
 scene.add(earth, clouds);
-//Moon
-const moonGeometry = new THREE.SphereGeometry(1.5, 50, 50);
-const moonMaterial = new THREE.MeshPhongMaterial({
-    map: new THREE.TextureLoader().load("./images/moon.jpg")
-});
-const moon = new THREE.Mesh(moonGeometry, moonMaterial);
-moon.position.set(35, 0, 0);
-
-//Values for moon orbit
-var r = 35;
-var theta = 0;
-var dTheta = 2 * Math.PI / 3000;
-scene.add(moon)
-
 
 //Controls
 //const controls = new OrbitControls(camera, renderer.domElement);
-
-
 
 //Resize canvas on display resize
 function canvasResizeToDisplay(force) {
@@ -77,16 +63,8 @@ function animate() {
     canvasResizeToDisplay();
 
     //Earth rotation
-    earth.rotateX(0.00010);
-    earth.rotateY(0.00010);
+   earth.rotateY(0.00010);
     clouds.rotateY(0.00005);
-
-    //Moon orbit
-    theta += dTheta;
-    moon.position.x = r * Math.cos(theta);
-    moon.position.z = r * Math.sin(theta);
-    //Moon rotation
-    moon.rotateY(0.00020);
 
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
